@@ -3,6 +3,8 @@ import CommonKmp
 
 @main
 struct iOSApp: App {
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
     init() {
         initShared()
