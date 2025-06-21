@@ -28,7 +28,7 @@ kotlin {
         ios.deploymentTarget = "16.0"
         podfile = project.file("../iosApp/Podfile")
         framework {
-            baseName = "shared"
+            baseName = "CommonKmp"
             isStatic = true
         }
     }
