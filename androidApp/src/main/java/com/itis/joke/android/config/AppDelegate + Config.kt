@@ -1,11 +1,11 @@
 package com.itis.joke.android.config
 
 import android.os.Build
-import com.itis.joke.CommonKmp
+import com.itis.joke.core.common.CommonKmp
 import com.itis.joke.android.AppDelegate
 import com.itis.joke.android.BuildConfig
-import com.itis.joke.core.config.Configuration
-import com.itis.joke.core.config.PlatformConfiguration
+import com.itis.joke.core.common.config.Configuration
+import com.itis.joke.core.common.config.PlatformConfiguration
 
 internal fun AppDelegate.initCommon() {
     val config = Configuration(

@@ -9,4 +9,5 @@ plugins {
     alias(libs.plugins.kotlinSerialization).apply(false)
     alias(libs.plugins.googleService).apply(false)
     alias(libs.plugins.crashlytics).apply(false)
+    alias(libs.plugins.sqldelight).apply(false)
 }

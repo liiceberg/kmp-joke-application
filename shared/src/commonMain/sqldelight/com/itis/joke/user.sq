@@ -1,0 +1,18 @@
+CREATE TABLE user (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL
+);
+
+insertUser:
+INSERT INTO user (username, email, password) VALUES (?, ?, ?);
+
+getByEmail:
+SELECT * FROM user WHERE email = ?;
+
+getByEmailAndPassword:
+SELECT * FROM user WHERE email = ? AND password = ?;
+
+lastInsertedId:
+SELECT last_insert_rowid();
