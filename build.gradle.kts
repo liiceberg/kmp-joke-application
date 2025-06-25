@@ -1,3 +1,13 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("dev.icerock.moko:resources-generator:0.24.5")
+    }
+}
+
 plugins {
     //trick: for the same plugin versions in all sub-modules
     alias(libs.plugins.androidApplication).apply(false)

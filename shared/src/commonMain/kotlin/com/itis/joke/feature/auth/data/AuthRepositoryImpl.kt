@@ -20,7 +20,8 @@ internal class AuthRepositoryImpl(
     }
 
     override suspend fun login(email: String, password: String) {
-        usersDataSource.getUser(email, password) ?: throw AppException.InvalidCredentials("")
+        val u = usersDataSource.getUser(email, password) ?: throw AppException.InvalidCredentials("")
+        println(u)
     }
 
 }

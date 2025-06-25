@@ -20,5 +20,4 @@ internal fun AppDelegate.initCommon() {
     )
 
     CommonKmp.initKoin(config)
-
 }

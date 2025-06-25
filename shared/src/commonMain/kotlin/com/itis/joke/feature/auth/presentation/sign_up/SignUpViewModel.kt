@@ -20,6 +20,7 @@ class SignUpViewModel(
 ) {
 
     override fun obtainEvent(event: SignUpEvent) {
+
         when (event) {
             is SignUpEvent.OnUsernameFilled -> {
                 validateUsername(event.username)

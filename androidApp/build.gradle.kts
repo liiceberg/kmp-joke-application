@@ -44,9 +44,11 @@ dependencies {
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
+    implementation(libs.compose.material.icons.ext)
     implementation(libs.androidx.activity.compose)
 
     implementation(libs.koin.android)
+    implementation(libs.koin.compose.vm)
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)

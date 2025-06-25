@@ -1,0 +1,103 @@
+package com.itis.joke.android.ui.components
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
+import com.itis.joke.android.ui.theme.JokeTheme
+import com.itis.joke.android.R
+
+@Composable
+fun JokeIcon(
+    painter: Painter,
+    size: Dp,
+    modifier: Modifier = Modifier,
+    tint: Color = Color.Unspecified
+) {
+    Icon(
+        painter = painter,
+        contentDescription = null,
+        modifier = modifier.size(size),
+        tint = tint,
+    )
+}
+
+@Composable
+fun JokeIcon(
+    icon: ImageVector,
+    size: Dp,
+    modifier: Modifier = Modifier,
+    tint: Color = Color.Unspecified
+) {
+    JokeIcon(
+        painter = rememberVectorPainter(image = icon),
+        size = size,
+        modifier = modifier,
+        tint = tint
+    )
+}
+
+@Composable
+fun LightIcon(
+    painter: Painter,
+    modifier: Modifier = Modifier,
+) {
+    Icon(
+        painter = painter,
+        contentDescription = null,
+        modifier = modifier
+            .size(50.dp)
+            .clip(
+                CircleShape
+            )
+            .background(MaterialTheme.colorScheme.surface)
+            .padding(8.dp),
+        tint = MaterialTheme.colorScheme.primary
+    )
+}
+
+@Composable
+fun DarkIcon(
+    painter: Painter,
+    modifier: Modifier = Modifier,
+) {
+    Icon(
+        painter = painter,
+        contentDescription = null,
+        modifier = modifier
+            .clip(
+                CircleShape
+            )
+            .background(MaterialTheme.colorScheme.primary)
+            .padding(15.dp),
+        tint = MaterialTheme.colorScheme.onPrimary
+    )
+}
+
+@Preview(showBackground = false)
+@Composable
+fun PreviewIcons() {
+
+    JokeTheme {
+        Column {
+            LightIcon(painter = painterResource(id =R.drawable.laugh_logo))
+            DarkIcon(painter = painterResource(id = R.drawable.laugh_logo))
+        }
+    }
+}
+
+

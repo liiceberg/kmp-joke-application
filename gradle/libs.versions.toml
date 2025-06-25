@@ -33,7 +33,8 @@ googleService = "4.4.2"
 crashlytics = "3.0.3"
 
 # testing
-mockk = "1.14.0" # https://github.com/mockk/mockk
+mockk = "1.14.0"
+material3Jvmstubs = "1.4.0-alpha16" # https://github.com/mockk/mockk
 
 [libraries]
 components-resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "componentsResources" }
@@ -88,6 +89,7 @@ koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin" }
 koin-compose-vm = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin" }
 koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
+koin-bom = { group = "io.insert-koin", name = "koin-bom", version.ref = "koin" }
 
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "settings" }
 multiplatform-settings-serialization = { module = "com.russhwolf:multiplatform-settings-serialization", version.ref = "settings" }
@@ -111,6 +113,8 @@ mockk-jvm = { module = "io.mockk:mockk", version.ref = "mockk" }
 mockk-android = { module = "io.mockk:mockk-android", version.ref = "mockk" }
 
 moko-resources = { module = "dev.icerock.moko:resources", version.ref = "moko"}
+moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko"}
+androidx-material3-jvmstubs = { group = "androidx.compose.material3", name = "material3-jvmstubs", version.ref = "material3Jvmstubs" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -125,6 +129,7 @@ sqldelight = { id = "app.cash.sqldelight", version.ref = "sqlDelight" }
 googleService = { id = "com.google.gms.google-services", version.ref = "googleService" }
 crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "crashlytics" }
 moko = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "moko" }
+moko-generator = { id = "dev.icerock.moko.resources-generator", version.ref = "moko" }
 
 [bundles]
 ktorClientCommon = [
