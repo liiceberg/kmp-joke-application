@@ -1,6 +1,5 @@
 package com.itis.joke.feature.auth
 
-import com.itis.joke.core.common.exceptions.ExceptionHandlerDelegate
 import com.itis.joke.feature.auth.data.AuthRepositoryImpl
 import com.itis.joke.feature.auth.data.UsersDataSource
 import com.itis.joke.feature.auth.domain.repository.AuthRepository
@@ -25,7 +24,6 @@ val authModule = module {
     singleOf(::RegisterUseCaseImpl) { bind<RegisterUseCase>() }
 
     singleOf(::UserDataValidator)
-    singleOf(::ExceptionHandlerDelegate)
 
     viewModelOf(::SignInViewModel)
     viewModelOf(::SignUpViewModel)

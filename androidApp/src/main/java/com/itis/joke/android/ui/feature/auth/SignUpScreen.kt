@@ -1,6 +1,5 @@
 package com.itis.joke.android.ui.feature.auth
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,15 +22,16 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.itis.joke.android.R
 import com.itis.joke.android.ui.components.BodyTextWithLink
-import com.itis.joke.android.ui.components.LimitedErrorMessage
 import com.itis.joke.android.ui.components.HeadlineLargeText
-import com.itis.joke.android.ui.components.LoadingIndicator
-import com.itis.joke.android.ui.components.PasswordTextField
 import com.itis.joke.android.ui.components.JokeButton
 import com.itis.joke.android.ui.components.JokeIcon
 import com.itis.joke.android.ui.components.JokeIconButton
 import com.itis.joke.android.ui.components.JokeTextField
+import com.itis.joke.android.ui.components.LimitedErrorMessage
+import com.itis.joke.android.ui.components.LoadingIndicator
+import com.itis.joke.android.ui.components.PasswordTextField
 import com.itis.joke.android.ui.theme.JokeTheme
+import com.itis.joke.android.ui.util.showShortToast
 import com.itis.joke.core.ui.LoadState
 import com.itis.joke.feature.auth.presentation.sign_up.SignUpAction
 import com.itis.joke.feature.auth.presentation.sign_up.SignUpEvent
@@ -56,12 +56,12 @@ fun SignUpScreen(
         toSignIn = toSignIn,
     )
 
-    val ctx = LocalContext.current
+    val context = LocalContext.current
     LaunchedEffect(Unit) {
         viewModel.viewActions().collect { action ->
             when (action) {
                 is SignUpAction.RedirectOnSuccess -> {
-                    Toast.makeText(ctx, R.string.success_create_account, Toast.LENGTH_SHORT).show()
+                    context.showShortToast(R.string.success_create_account)
                     toSignIn()
                 }
 

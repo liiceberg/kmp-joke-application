@@ -4,8 +4,6 @@
     <!--  Sign in  -->
     <string name="sign_in_title_text">Sign in your account</string>
     <string name="sign_in">Sign in</string>
-    <string name="or">or</string>
-    <string name="sign_in_with_google">Sign in with Google</string>
     <string name="no_account">Don’t have an account?</string>
     <string name="invalid_credentials_error">Email or password entered incorrectly</string>
     <string name="invalid_email_error">Such email already registered</string>
@@ -13,7 +11,6 @@
     <!--  Sign up  -->
     <string name="sign_up_title_text">Create your account</string>
     <string name="sign_up">Sign up</string>
-    <string name="sign_up_with_google">Sign up with Google</string>
     <string name="have_account">Have an account?</string>
     <string name="success_create_account">Account was successfully created</string>
 
@@ -21,5 +18,13 @@
     <string name="email_label">Email</string>
     <string name="password_label">Password</string>
     <string name="confirm_password_label">Confirm password</string>
+
+    <!--  Joke Settings  -->
+    <string name="success_text">Data is saved</string>
+    <string name="failure_text">Couldn\'t save data</string>
+    <string name="save_button">Save</string>
+    <string name="joke_category">Joke category</string>
+    <string name="joke_type">Type</string>
+    <string name="blacklist">Blacklist</string>
 
 </resources>
