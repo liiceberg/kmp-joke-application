@@ -45,8 +45,17 @@ fun HeadlineMediumText(text: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun HeadlineSmallText(text: String, modifier: Modifier = Modifier) {
-    Text(text = text, modifier = modifier, style = MaterialTheme.typography.headlineSmall)
+fun HeadlineSmallText(
+    text: String,
+    modifier: Modifier = Modifier,
+    color: Color = Color.Unspecified
+) {
+    Text(
+        text = text,
+        modifier = modifier,
+        style = MaterialTheme.typography.headlineSmall,
+        color = color
+    )
 }
 
 @Composable
@@ -65,12 +74,12 @@ fun TitleMediumText(text: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun TitleSmallText(text: String, modifier: Modifier = Modifier, color: Color? = null) {
+fun TitleSmallText(text: String, modifier: Modifier = Modifier, color: Color = Color.Unspecified) {
     Text(
         text = text,
         modifier = modifier,
         style = MaterialTheme.typography.titleSmall,
-        color = color ?: Color.Unspecified,
+        color = color,
         textAlign = TextAlign.Center,
     )
 }

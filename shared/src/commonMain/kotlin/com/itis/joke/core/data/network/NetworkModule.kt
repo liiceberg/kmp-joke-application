@@ -34,7 +34,7 @@ val networkModule = module {
     }
 }
 
-private const val BASE_URL = "https://jokeapi.dev"
+private const val BASE_URL = "jokeapi.dev"
 
 private fun buildHttpClient(
     engine: HttpClientEngineFactory<HttpClientEngineConfig>,

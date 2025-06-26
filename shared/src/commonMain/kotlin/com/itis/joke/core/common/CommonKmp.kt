@@ -4,12 +4,15 @@ import com.itis.joke.core.common.config.Configuration
 import com.itis.joke.core.common.config.PlatformConfiguration
 import com.itis.joke.core.common.exceptions.ExceptionHandlerDelegate
 import com.itis.joke.core.data.database.databaseModule
+import com.itis.joke.core.data.datasource.remote.JokeRemoteDataSource
+import com.itis.joke.core.data.datasource.local.JokeSettingsDataSource
 import com.itis.joke.core.data.network.networkModule
 import com.itis.joke.core.data.qualifier.qualifierModule
 import com.itis.joke.core.data.settings.settingsModule
 import com.itis.joke.feature.auth.authModule
 import com.itis.joke.feature.joke_settings.jokeSettingsModule
 import com.itis.joke.feature.library.libraryModule
+import com.itis.joke.feature.random_joke.randomJokeModule
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -37,6 +40,7 @@ object CommonKmp {
                 authModule,
                 libraryModule,
                 jokeSettingsModule,
+                randomJokeModule,
             )
         }
     }
@@ -49,6 +53,9 @@ object CommonKmp {
     private fun createCommon() = module {
         single<CoroutineDispatcher> { Dispatchers.IO }
         singleOf(::ExceptionHandlerDelegate)
+
+        singleOf(::JokeSettingsDataSource)
+        singleOf(::JokeRemoteDataSource)
     }
 
 }

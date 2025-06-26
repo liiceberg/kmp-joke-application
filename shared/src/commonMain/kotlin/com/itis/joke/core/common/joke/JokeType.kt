@@ -1,5 +1,5 @@
 package com.itis.joke.core.common.joke
 
-enum class JokeType {
-    ANY, SINGLE, TWOPART
+enum class JokeType(val value: String) {
+    ANY("any"), SINGLE("single"), TWOPART("twopart")
 }
