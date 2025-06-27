@@ -1,17 +1,15 @@
 package com.itis.joke.core.common.exceptions
 
-//import com.google.firebase.FirebaseNetworkException
+import com.itis.joke.Res
 
 class ExceptionHandlerDelegate() {
     fun handleException(ex: Throwable): Throwable {
+        println(ex.message)
         return when (ex) {
             is AppException ->
                 ex
-//            is FirebaseNetworkException -> {
-//                AppException.UploadDataFailed("Please, check internet connection and try again")
-//            }
             else -> {
-                AppException.Unknown("We are working hard to fix the problem. Please, try again later")
+                AppException.Unknown(Res.string.unknown_error)
             }
         }
     }

@@ -54,11 +54,12 @@ private fun JokeLibraryView(
             stringResource(R.string.search),
             Modifier.padding(horizontal = 16.dp, vertical = 32.dp)
         ) { onSearchFilled(it) }
+        JokeList(state.items)
         Box(Modifier.fillMaxSize(), Alignment.Center) {
             when (state.loadState) {
                 LoadState.Loading -> LoadingIndicator()
                 is LoadState.Error -> ErrorMessage(errorText = (state.loadState as LoadState.Error).message)
-                else -> JokeList(state.items)
+                else -> {}
             }
         }
     }

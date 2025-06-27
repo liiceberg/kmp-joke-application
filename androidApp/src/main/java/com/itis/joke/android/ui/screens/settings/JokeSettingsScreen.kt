@@ -14,7 +14,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -25,7 +24,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.itis.joke.android.R
 import com.itis.joke.android.ui.components.BlacklistList
 import com.itis.joke.android.ui.components.JokeButton
@@ -35,9 +33,9 @@ import com.itis.joke.android.ui.components.RadioItem
 import com.itis.joke.android.ui.components.TitleLargeText
 import com.itis.joke.android.ui.theme.JokeTheme
 import com.itis.joke.android.ui.util.showShortToast
-import com.itis.joke.core.common.joke.JokeBlackListItem
-import com.itis.joke.core.common.joke.JokeCategory
-import com.itis.joke.core.common.joke.JokeType
+import com.itis.joke.core.common.model.JokeBlackListItem
+import com.itis.joke.core.common.model.JokeCategory
+import com.itis.joke.core.common.model.JokeType
 import com.itis.joke.feature.joke_settings.presenation.JokeSettingsAction
 import com.itis.joke.feature.joke_settings.presenation.JokeSettingsEvent
 import com.itis.joke.feature.joke_settings.presenation.JokeSettingsState

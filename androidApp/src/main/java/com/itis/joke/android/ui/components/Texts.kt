@@ -10,29 +10,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withLink
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.sp
 import com.itis.joke.android.ui.theme.JokeTheme
-
-@Composable
-fun DisplayLargeText(text: String, modifier: Modifier = Modifier) {
-    Text(text = text, modifier = modifier, style = MaterialTheme.typography.displayLarge)
-}
-
-@Composable
-fun DisplayMediumText(text: String, modifier: Modifier = Modifier) {
-    Text(text = text, modifier = modifier, style = MaterialTheme.typography.displayMedium)
-}
-
-@Composable
-fun DisplaySmallText(text: String, modifier: Modifier = Modifier) {
-    Text(text = text, modifier = modifier, style = MaterialTheme.typography.displaySmall)
-}
 
 @Composable
 fun HeadlineLargeText(text: String, modifier: Modifier = Modifier) {
@@ -155,36 +138,6 @@ fun BodyTextWithLink(
     )
 }
 
-
-@Composable
-fun KeyValueText(key: String, value: String, modifier: Modifier = Modifier) {
-
-    val annotatedString = buildAnnotatedString {
-        withStyle(
-            SpanStyle(
-                fontWeight = FontWeight.W600,
-                fontSize = 14.sp,
-            )
-        ) {
-            append(key)
-            append(": ")
-        }
-        withStyle(
-            SpanStyle(
-                fontSize = 14.sp,
-            )
-        ) {
-            append(value)
-        }
-    }
-
-    Text(
-        text = annotatedString,
-        modifier = modifier,
-    )
-}
-
-
 @Composable
 fun ErrorMediumText(text: String, modifier: Modifier = Modifier) {
     Text(
@@ -204,7 +157,6 @@ private fun PreviewText() {
             TitleSmallText("example 2")
             BodyMediumText("example")
             BodyTextWithLink("text", "link") {}
-            KeyValueText("Key", "value")
         }
     }
 }

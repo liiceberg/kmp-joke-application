@@ -1,4 +1,4 @@
-package com.itis.joke.core.common.joke
+package com.itis.joke.core.common.model
 
 import kotlinx.serialization.Serializable
 

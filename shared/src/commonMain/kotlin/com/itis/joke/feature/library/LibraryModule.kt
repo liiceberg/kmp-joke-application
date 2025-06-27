@@ -6,14 +6,14 @@ import com.itis.joke.feature.library.domain.JokeLibraryRepository
 import com.itis.joke.feature.library.domain.impl.GetJokesUseCaseImpl
 import com.itis.joke.feature.library.presenation.JokeLibraryViewModel
 import org.koin.core.module.dsl.bind
-import org.koin.core.module.dsl.singleOf
+import org.koin.core.module.dsl.factoryOf
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 
 val libraryModule = module {
-    singleOf(::JokeLibraryRepositoryImpl) { bind<JokeLibraryRepository>() }
+    factoryOf(::JokeLibraryRepositoryImpl) { bind<JokeLibraryRepository>() }
 
-    singleOf(::GetJokesUseCaseImpl) { bind<GetJokesUseCase>() }
+    factoryOf(::GetJokesUseCaseImpl) { bind<GetJokesUseCase>() }
 
     viewModelOf(::JokeLibraryViewModel)
 }

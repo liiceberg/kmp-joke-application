@@ -30,9 +30,9 @@ import com.itis.joke.android.ui.components.JokeIconButton
 import com.itis.joke.android.ui.components.LoadingIndicator
 import com.itis.joke.android.ui.components.TitleMediumText
 import com.itis.joke.android.ui.theme.JokeTheme
-import com.itis.joke.core.common.joke.JokeType
-import com.itis.joke.core.data.datasource.remote.model.SingleJokeModel
-import com.itis.joke.core.data.datasource.remote.model.TwoPartJokeModel
+import com.itis.joke.core.common.model.JokeType
+import com.itis.joke.core.common.model.SingleJokeModel
+import com.itis.joke.core.common.model.TwoPartJokeModel
 import com.itis.joke.core.ui.LoadState
 import com.itis.joke.feature.random_joke.presentation.RandomJokeEvent
 import com.itis.joke.feature.random_joke.presentation.RandomJokeState

@@ -18,7 +18,7 @@ import kotlinx.serialization.ExperimentalSerializationApi
 fun JokeNavHost(navController: NavHostController, bottomVisibilityChange: (Boolean) -> Unit) {
     NavHost(
         navController = navController,
-        startDestination = Route.BottomMenu.RandomJoke,
+        startDestination = Route.Auth.SignIn,
     ) {
 
         composable<Route.BottomMenu.RandomJoke> {

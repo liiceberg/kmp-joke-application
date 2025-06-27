@@ -1,11 +1,11 @@
 package com.itis.joke.feature.suggest_joke.data
 
-import com.itis.joke.core.common.joke.JokeBlackListItem
-import com.itis.joke.core.common.joke.JokeType
+import com.itis.joke.core.common.model.JokeBlackListItem
+import com.itis.joke.core.common.model.JokeType
 import com.itis.joke.core.data.datasource.remote.model.JokeFlags
 import com.itis.joke.core.data.datasource.remote.model.JokeSubmissionRequest
-import com.itis.joke.core.data.datasource.remote.model.SingleJokeModel
-import com.itis.joke.core.data.datasource.remote.model.TwoPartJokeModel
+import com.itis.joke.core.common.model.SingleJokeModel
+import com.itis.joke.core.common.model.TwoPartJokeModel
 import com.itis.joke.feature.suggest_joke.domain.SubmitJokeModel
 
 class SubmitJokeModelMapper {

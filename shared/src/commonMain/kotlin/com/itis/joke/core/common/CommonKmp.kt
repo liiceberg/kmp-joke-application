@@ -18,6 +18,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import org.koin.core.context.startKoin
+import org.koin.core.module.dsl.factoryOf
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.KoinAppDeclaration
 import org.koin.dsl.module
@@ -32,11 +33,14 @@ object CommonKmp {
             appDeclaration()
             modules(
                 createConfiguration(configuration),
-                createCommon(),
+
                 networkModule,
                 qualifierModule,
                 settingsModule,
                 databaseModule,
+
+                createCommon(),
+                createDataSource(),
 
                 authModule,
                 libraryModule,
@@ -53,10 +57,12 @@ object CommonKmp {
     }
 
     private fun createCommon() = module {
-        single<CoroutineDispatcher> { Dispatchers.IO }
-        singleOf(::ExceptionHandlerDelegate)
+        factory<CoroutineDispatcher> { Dispatchers.IO }
+        factoryOf(::ExceptionHandlerDelegate)
+    }
 
-        singleOf(::JokeSettingsDataSource)
+    private fun createDataSource() = module {
+        factoryOf(::JokeSettingsDataSource)
         singleOf(::JokeRemoteDataSource)
     }
 

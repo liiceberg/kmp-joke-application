@@ -12,17 +12,17 @@ import com.itis.joke.feature.joke_settings.domain.usecase.impl.GetJokeTypeUseCas
 import com.itis.joke.feature.joke_settings.domain.usecase.impl.SetJokeSettingsUseCaseImpl
 import com.itis.joke.feature.joke_settings.presenation.JokeSettingsViewModel
 import org.koin.core.module.dsl.bind
-import org.koin.core.module.dsl.singleOf
+import org.koin.core.module.dsl.factoryOf
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 
 val jokeSettingsModule = module {
-    singleOf(::JokeSettingsRepositoryImpl) { bind<JokeSettingsRepository>() }
+    factoryOf(::JokeSettingsRepositoryImpl) { bind<JokeSettingsRepository>() }
 
-    singleOf(::GetJokeTypeUseCaseImpl) { bind<GetJokeTypeUseCase>() }
-    singleOf(::GetJokeCategoryUseCaseImpl) { bind<GetJokeCategoryUseCase>() }
-    singleOf(::GetBlacklistUseCaseImpl) { bind<GetBlacklistUseCase>() }
-    singleOf(::SetJokeSettingsUseCaseImpl) { bind<SetJokeSettingsUseCase>() }
+    factoryOf(::GetJokeTypeUseCaseImpl) { bind<GetJokeTypeUseCase>() }
+    factoryOf(::GetJokeCategoryUseCaseImpl) { bind<GetJokeCategoryUseCase>() }
+    factoryOf(::GetBlacklistUseCaseImpl) { bind<GetBlacklistUseCase>() }
+    factoryOf(::SetJokeSettingsUseCaseImpl) { bind<SetJokeSettingsUseCase>() }
 
     viewModelOf(::JokeSettingsViewModel)
 }

@@ -1,15 +1,16 @@
 package com.itis.joke.feature.auth.presentation.util
+import com.itis.joke.Res
 import kotlin.text.Regex
 
 class UserDataValidator() {
     fun validateName(name: String): ValidationResult {
         if (name.isBlank()) {
-            return ValidationResult(false, "Enter a username")
+            return ValidationResult(false,Res.string.empty_username_error)
         }
         if (name.trim().matches(ALPHABETIC_CHARACTERS_WITH_WHITESPACE_REGEX).not()) {
             return ValidationResult(
                 false,
-                "Username must contain only latin alphabetic characters"
+                Res.string.incorrect_username_error
             )
         }
         return ValidationResult(true)
@@ -17,10 +18,10 @@ class UserDataValidator() {
 
     fun validateEmail(email: String): ValidationResult {
         if (email.isBlank()) {
-            return ValidationResult(false, "Enter an email")
+            return ValidationResult(false, Res.string.empty_email_error)
         }
         if (email.trim().matches(EMAIL_ADDRESS_REGEX).not()) {
-            return ValidationResult(false, "Incorrect email")
+            return ValidationResult(false, Res.string.email_error)
         }
         return ValidationResult(true)
     }
@@ -30,25 +31,25 @@ class UserDataValidator() {
             if (this.matches(EIGHT_SYMBOLS_AND_MORE_REGEX).not()) {
                 return ValidationResult(
                     false,
-                    "Password must be at least 8 characters long"
+                    Res.string.password_length_error
                 )
             }
             if (this.matches(CONTAIN_UPPER_CASE_CHARACTER_REGEX).not()) {
                 return ValidationResult(
                     false,
-                    "Password must contain upper case character"
+                    Res.string.password_upper_case_char_error
                 )
             }
             if (this.matches(CONTAIN_LOWER_CASE_CHARACTER_REGEX).not()) {
                 return ValidationResult(
                     false,
-                    "Password must contain lower case character"
+                    Res.string.password_lower_case_char_error
                 )
             }
             if (this.matches(CONTAIN_DIGIT_REGEX).not()) {
                 return ValidationResult(
                     false,
-                    "Password must contain digit"
+                    Res.string.password_digit_char_error
                 )
             }
         }
@@ -57,7 +58,7 @@ class UserDataValidator() {
 
     fun validatePasswordNotBlank(password: String): ValidationResult {
         if (password.isBlank()) {
-            return ValidationResult(false, "Enter a password")
+            return ValidationResult(false, Res.string.empty_password_error)
         }
         return ValidationResult(true)
     }
@@ -66,7 +67,7 @@ class UserDataValidator() {
         if (password.trim() != confirmPassword.trim()) {
             return ValidationResult(
                 false,
-                "Passwords not equals"
+                Res.string.passwords_not_equals_error
             )
         }
         return ValidationResult(true)

@@ -28,8 +28,8 @@ import com.itis.joke.android.ui.components.JokeTextField
 import com.itis.joke.android.ui.components.LoadingIndicator
 import com.itis.joke.android.ui.theme.JokeTheme
 import com.itis.joke.android.ui.util.showShortToast
-import com.itis.joke.core.common.joke.JokeBlackListItem
-import com.itis.joke.core.common.joke.JokeCategory
+import com.itis.joke.core.common.model.JokeBlackListItem
+import com.itis.joke.core.common.model.JokeCategory
 import com.itis.joke.core.ui.LoadState
 import com.itis.joke.feature.suggest_joke.presentation.SuggestJokeAction
 import com.itis.joke.feature.suggest_joke.presentation.SuggestJokeEvent

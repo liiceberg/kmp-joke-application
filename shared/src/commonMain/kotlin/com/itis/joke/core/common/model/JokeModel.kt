@@ -1,6 +1,4 @@
-package com.itis.joke.core.data.datasource.remote.model
-
-import com.itis.joke.core.common.joke.JokeType
+package com.itis.joke.core.common.model
 
 abstract class JokeModel(
     val type: JokeType,

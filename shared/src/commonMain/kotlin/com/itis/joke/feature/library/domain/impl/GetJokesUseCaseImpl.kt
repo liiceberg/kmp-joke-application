@@ -2,7 +2,7 @@ package com.itis.joke.feature.library.domain.impl
 
 import com.itis.joke.feature.library.domain.GetJokesUseCase
 import com.itis.joke.feature.library.domain.JokeLibraryRepository
-import com.itis.joke.core.data.datasource.remote.model.JokeModel
+import com.itis.joke.core.common.model.JokeModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 

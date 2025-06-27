@@ -1,8 +1,8 @@
 package com.itis.joke.feature.joke_settings.domain.usecase.impl
 
-import com.itis.joke.core.common.joke.JokeBlackListItem
-import com.itis.joke.core.common.joke.JokeCategory
-import com.itis.joke.core.common.joke.JokeType
+import com.itis.joke.core.common.model.JokeBlackListItem
+import com.itis.joke.core.common.model.JokeCategory
+import com.itis.joke.core.common.model.JokeType
 import com.itis.joke.feature.joke_settings.domain.JokeSettingsRepository
 import com.itis.joke.feature.joke_settings.domain.usecase.SetJokeSettingsUseCase
 import kotlinx.coroutines.CoroutineDispatcher

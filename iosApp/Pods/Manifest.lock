@@ -152,7 +152,7 @@ SPEC CHECKSUMS:
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
-  shared: 6acee2bc4ae9074d916afec85a781d5a7acc5ca8
+  shared: 398019dffee62aafe962d57c990eaf607662d6f2
 
 PODFILE CHECKSUM: 597485d37506eafcfe5b75db988bb7e824caf295
 

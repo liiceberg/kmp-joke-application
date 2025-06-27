@@ -6,7 +6,7 @@ plugins {
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.sqldelight)
-    id("dev.icerock.mobile.multiplatform-resources")
+    alias(libs.plugins.libres)
 }
 
 kotlin {
@@ -56,8 +56,7 @@ kotlin {
 
             implementation(libs.androidx.lifecycle.viewmodel)
 
-            implementation(libs.moko.resources)
-            implementation(libs.moko.resources.compose)
+            implementation(libs.libres.compose)
         }
         androidMain.dependencies {
             implementation(libs.ktor.client.okhttp)
@@ -110,12 +109,4 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-}
-
-multiplatformResources {
-    resourcesPackage.set("com.itis.joke")
-}
-
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    dependsOn("generateMRcommonMain")
 }

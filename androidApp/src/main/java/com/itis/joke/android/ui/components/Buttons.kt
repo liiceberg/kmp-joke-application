@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Button
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -24,18 +23,6 @@ fun JokeButton(
     onClick: () -> Unit
 ) {
     Button(onClick = onClick, modifier.fillMaxWidth(), enabled = enabled) {
-        TitleSmallText(text = text)
-    }
-}
-
-@Composable
-fun JokeOutlinedButton(
-    text: String,
-    modifier: Modifier = Modifier,
-    enabled: Boolean = true,
-    onClick: () -> Unit
-) {
-    OutlinedButton(onClick = onClick, modifier.fillMaxWidth(), enabled = enabled) {
         TitleSmallText(text = text)
     }
 }
@@ -76,7 +63,6 @@ fun PreviewButton() {
     JokeTheme {
         Column {
             JokeButton(text = "Example") {}
-            JokeOutlinedButton(text = "Example") {}
         }
     }
 }

@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("dev.icerock.moko:resources-generator:0.24.5")
+        classpath("io.github.skeptick.libres:gradle-plugin:1.2.4")
     }
 }
 

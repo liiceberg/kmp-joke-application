@@ -15,6 +15,9 @@ import io.ktor.http.contentType
 class JokeRemoteDataSource(
     private val httpClient: HttpClient,
 ) {
+
+    private val allJokes = mutableListOf<JokeResponse>()
+
     suspend fun getRandomJoke(
         category: String,
         type: String?,
@@ -27,18 +30,19 @@ class JokeRemoteDataSource(
     }
 
     suspend fun getAll() : List<JokeResponse> {
-        val list = mutableListOf<JokeResponse>()
-        val pageSize = 10
-        for (i in 0..100 step pageSize) {
-            val resp = httpClient.get("/joke/Any") {
-                parameter("amount", pageSize)
-                parameter("idRange", "$i-${i+pageSize - 1}")
-            }.body<JokeListResponse>()
-            if (resp.error.not()) {
-                list.addAll(resp.jokes)
+        if (allJokes.isEmpty()) {
+            val pageSize = 10
+            for (i in 0..100 step pageSize) {
+                val resp = httpClient.get("/joke/Any") {
+                    parameter("amount", pageSize)
+                    parameter("idRange", "$i-${i + pageSize - 1}")
+                }.body<JokeListResponse>()
+                if (resp.error.not()) {
+                    allJokes.addAll(resp.jokes)
+                }
             }
         }
-        return list
+        return allJokes
     }
 
     suspend fun submitJoke(jokeSubmission: JokeSubmissionRequest) {

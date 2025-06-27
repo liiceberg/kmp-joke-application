@@ -1,8 +1,8 @@
 package com.itis.joke.feature.suggest_joke.presentation
 
-import com.itis.joke.core.common.joke.JokeType
-import com.itis.joke.core.data.datasource.remote.model.SingleJokeModel
-import com.itis.joke.core.data.datasource.remote.model.TwoPartJokeModel
+import com.itis.joke.core.common.model.JokeType
+import com.itis.joke.core.common.model.SingleJokeModel
+import com.itis.joke.core.common.model.TwoPartJokeModel
 import com.itis.joke.feature.suggest_joke.domain.SubmitJokeModel
 
 class SuggestJokeStateMapper {

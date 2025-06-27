@@ -3,8 +3,8 @@ package com.itis.joke.feature.suggest_joke.presentation
 import androidx.lifecycle.viewModelScope
 import com.itis.joke.core.common.exceptions.ExceptionHandlerDelegate
 import com.itis.joke.core.common.exceptions.runCatching
-import com.itis.joke.core.common.joke.JokeBlackListItem
-import com.itis.joke.core.common.joke.JokeCategory
+import com.itis.joke.core.common.model.JokeBlackListItem
+import com.itis.joke.core.common.model.JokeCategory
 import com.itis.joke.core.ui.LoadState
 import com.itis.joke.core.ui.viewmodel.BaseViewModel
 import com.itis.joke.feature.suggest_joke.domain.SendJokeUseCase

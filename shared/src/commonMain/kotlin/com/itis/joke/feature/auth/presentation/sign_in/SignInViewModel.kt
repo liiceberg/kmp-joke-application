@@ -1,6 +1,7 @@
 package com.itis.joke.feature.auth.presentation.sign_in
 
 import androidx.lifecycle.viewModelScope
+import com.itis.joke.Res
 import com.itis.joke.core.ui.LoadState
 import com.itis.joke.core.common.exceptions.AppException
 import com.itis.joke.core.common.exceptions.ExceptionHandlerDelegate
@@ -51,7 +52,7 @@ class SignInViewModel(
                     viewState = viewState.copy(
                         passwordValidation = ValidationResult(
                             isValid = false,
-                            error = "Email or password entered incorrectly"
+                            error = Res.string.incorrect_credentials_error,
                         )
                     )
                 } else {

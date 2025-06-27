@@ -8,16 +8,16 @@ import com.itis.joke.feature.suggest_joke.domain.impl.SendJokeUseCaseImpl
 import com.itis.joke.feature.suggest_joke.presentation.SuggestJokeStateMapper
 import com.itis.joke.feature.suggest_joke.presentation.SuggestJokeViewModel
 import org.koin.core.module.dsl.bind
-import org.koin.core.module.dsl.singleOf
+import org.koin.core.module.dsl.factoryOf
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 
 val suggestJokeModule = module {
-    singleOf(::SuggestJokeRepositoryImpl) { bind<SuggestJokeRepository>() }
-    singleOf(::SubmitJokeModelMapper)
+    factoryOf(::SuggestJokeRepositoryImpl) { bind<SuggestJokeRepository>() }
+    factoryOf(::SubmitJokeModelMapper)
 
-    singleOf(::SendJokeUseCaseImpl) { bind<SendJokeUseCase>() }
-    singleOf(::SuggestJokeStateMapper)
+    factoryOf(::SendJokeUseCaseImpl) { bind<SendJokeUseCase>() }
+    factoryOf(::SuggestJokeStateMapper)
 
     viewModelOf(::SuggestJokeViewModel)
 }

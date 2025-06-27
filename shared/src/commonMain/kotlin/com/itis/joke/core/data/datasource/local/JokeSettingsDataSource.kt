@@ -1,8 +1,8 @@
 package com.itis.joke.core.data.datasource.local
 
-import com.itis.joke.core.common.joke.JokeBlackListItem
-import com.itis.joke.core.common.joke.JokeCategory
-import com.itis.joke.core.common.joke.JokeType
+import com.itis.joke.core.common.model.JokeBlackListItem
+import com.itis.joke.core.common.model.JokeCategory
+import com.itis.joke.core.common.model.JokeType
 import com.itis.joke.core.data.settings.SettingsKeys
 import com.russhwolf.settings.Settings
 import kotlinx.serialization.builtins.ListSerializer

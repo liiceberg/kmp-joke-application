@@ -11,19 +11,19 @@ import com.itis.joke.feature.auth.presentation.sign_in.SignInViewModel
 import com.itis.joke.feature.auth.presentation.sign_up.SignUpViewModel
 import com.itis.joke.feature.auth.presentation.util.UserDataValidator
 import org.koin.core.module.dsl.bind
-import org.koin.core.module.dsl.singleOf
+import org.koin.core.module.dsl.factoryOf
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 
 val authModule = module {
-    singleOf(::UsersDataSource)
+    factoryOf(::UsersDataSource)
 
-    singleOf(::AuthRepositoryImpl) { bind<AuthRepository>() }
+    factoryOf(::AuthRepositoryImpl) { bind<AuthRepository>() }
 
-    singleOf(::LoginUseCaseImpl) { bind<LoginUseCase>() }
-    singleOf(::RegisterUseCaseImpl) { bind<RegisterUseCase>() }
+    factoryOf(::LoginUseCaseImpl) { bind<LoginUseCase>() }
+    factoryOf(::RegisterUseCaseImpl) { bind<RegisterUseCase>() }
 
-    singleOf(::UserDataValidator)
+    factoryOf(::UserDataValidator)
 
     viewModelOf(::SignInViewModel)
     viewModelOf(::SignUpViewModel)
