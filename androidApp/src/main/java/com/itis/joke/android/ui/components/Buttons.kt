@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Button
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -57,7 +58,7 @@ fun JokeIconButton(
     icon: ImageVector,
     size: Dp,
     modifier: Modifier = Modifier,
-    tint: Color = Color.Unspecified,
+    tint: Color = MaterialTheme.colorScheme.primary,
     onClick: () -> Unit,
 ) {
     JokeIconButton(

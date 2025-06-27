@@ -1,4 +1,4 @@
-package com.itis.joke.android.ui.feature.auth
+package com.itis.joke.android.ui.screens.auth
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column

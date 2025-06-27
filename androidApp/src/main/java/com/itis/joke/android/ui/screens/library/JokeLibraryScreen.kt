@@ -1,4 +1,4 @@
-package com.itis.joke.android.ui.feature.library
+package com.itis.joke.android.ui.screens.library
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

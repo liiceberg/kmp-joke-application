@@ -1,7 +1,8 @@
-package com.itis.joke.android.ui.feature.settings
+package com.itis.joke.android.ui.screens.settings
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -11,6 +12,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -21,10 +25,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.itis.joke.android.R
 import com.itis.joke.android.ui.components.BlacklistList
 import com.itis.joke.android.ui.components.JokeButton
 import com.itis.joke.android.ui.components.JokeCategoriesList
+import com.itis.joke.android.ui.components.JokeIconButton
 import com.itis.joke.android.ui.components.RadioItem
 import com.itis.joke.android.ui.components.TitleLargeText
 import com.itis.joke.android.ui.theme.JokeTheme
@@ -39,7 +45,7 @@ import com.itis.joke.feature.joke_settings.presenation.JokeSettingsViewModel
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-fun JokeSettingsScreen(viewModel: JokeSettingsViewModel = koinViewModel()) {
+fun JokeSettingsScreen(viewModel: JokeSettingsViewModel = koinViewModel(), onClose: () -> Unit) {
 
     val state by viewModel.viewStates().collectAsStateWithLifecycle()
 
@@ -50,7 +56,8 @@ fun JokeSettingsScreen(viewModel: JokeSettingsViewModel = koinViewModel()) {
         onCategoryChange = { viewModel.obtainEvent(JokeSettingsEvent.OnCategoryChange(it)) },
         onBlackListChange = { item, checked ->
             viewModel.obtainEvent(JokeSettingsEvent.OnBlackListChange(item, checked))
-        }
+        },
+        onClose = onClose,
     )
 
     val context = LocalContext.current
@@ -59,9 +66,13 @@ fun JokeSettingsScreen(viewModel: JokeSettingsViewModel = koinViewModel()) {
             when (action) {
 
                 is JokeSettingsAction.ShowSaveToast -> {
-                    val message =
-                        if (action.isSuccess) R.string.success_text else R.string.failure_text
+                    val message = if (action.isSuccess) {
+                        R.string.success_settings_text
+                    } else {
+                        R.string.failure_settings_text
+                    }
                     context.showShortToast(message)
+                    onClose()
                 }
 
                 else -> {}
@@ -77,16 +88,18 @@ private fun JokeSettingsView(
     onCategoryChange: (value: JokeCategory) -> Unit,
     onJokeTypeChange: (value: JokeType) -> Unit,
     onBlackListChange: (item: JokeBlackListItem, checked: Boolean) -> Unit,
+    onClose: () -> Unit,
 ) {
     Column(
         Modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
-            .padding(top = 32.dp, bottom = 16.dp, start = 16.dp, end = 16.dp)
+            .padding(top = 16.dp, bottom = 16.dp, start = 16.dp, end = 16.dp)
     ) {
-
+        Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.CenterEnd) {
+            JokeIconButton(icon = Icons.Default.Close, size = 32.dp, onClick = onClose)
+        }
         JokeCategoriesList(state.category, onCategoryChange)
-
 
         Spacer(modifier = Modifier.height(16.dp))
         TitleLargeText(
@@ -123,6 +136,6 @@ private fun JokeSettingsView(
 @Composable
 private fun JokeSettingsPreview() {
     JokeTheme {
-        JokeSettingsView(JokeSettingsState(), {}, {}, {}, { _, _ -> })
+        JokeSettingsView(JokeSettingsState(), {}, {}, {}, { _, _ -> }, {})
     }
 }

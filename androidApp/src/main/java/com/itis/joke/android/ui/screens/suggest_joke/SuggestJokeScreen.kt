@@ -1,4 +1,4 @@
-package com.itis.joke.android.ui.feature.suggest_joke
+package com.itis.joke.android.ui.screens.suggest_joke
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

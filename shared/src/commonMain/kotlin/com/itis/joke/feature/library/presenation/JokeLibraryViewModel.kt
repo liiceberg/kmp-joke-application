@@ -16,7 +16,7 @@ class JokeLibraryViewModel(
     private var allJokes: List<String> = emptyList()
 
     init {
-        loadJokes()
+//        loadJokes()
     }
 
     override fun obtainEvent(event: JokeLibraryEvent) {

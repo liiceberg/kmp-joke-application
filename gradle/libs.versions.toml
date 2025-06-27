@@ -24,6 +24,7 @@ androidx-lifecycle = "2.9.0-rc01"
 androidx-activityCompose = "1.10.1"
 androidx-fragmentCompose = "1.8.6"
 androidx-splashscreen = "1.0.1"
+androidx-navigation = "2.8.9"
 
 coil = "3.1.0" # https://github.com/coil-kt/coil
 moko = "0.24.5" # https://github.com/icerockdev/moko-resources
@@ -42,6 +43,7 @@ kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotl
 
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 androidx-fragment-compose = { module = "androidx.fragment:fragment-compose", version.ref = "androidx-fragmentCompose" }
+androidx-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation"}
 
 androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx-lifecycle" }

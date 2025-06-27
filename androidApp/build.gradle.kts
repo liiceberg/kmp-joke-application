@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.googleService)
     alias(libs.plugins.crashlytics)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 android {
@@ -45,6 +46,7 @@ dependencies {
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
     implementation(libs.compose.material.icons.ext)
+    implementation(libs.androidx.navigation)
     implementation(libs.androidx.activity.compose)
 
     implementation(libs.koin.android)

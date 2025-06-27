@@ -1,4 +1,4 @@
-package com.itis.joke.android.ui.feature.auth
+package com.itis.joke.android.ui.screens.auth
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -100,12 +99,11 @@ private fun SignUpView(
                 ) {
                     JokeIconButton(
                         icon = Icons.AutoMirrored.Filled.ArrowBack,
-                        size = 24.dp,
-                        tint = MaterialTheme.colorScheme.primary,
+                        size = 32.dp,
                     ) {
                         toSignIn()
                     }
-                    JokeIcon(painterResource(R.drawable.laugh_logo), 28.dp)
+                    JokeIcon(painterResource(R.drawable.laugh_logo), 32.dp)
                 }
 
                 HeadlineLargeText(

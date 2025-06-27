@@ -14,7 +14,7 @@ class RandomJokeViewModel(
 ) : BaseViewModel<RandomJokeState, RandomJokeEvent, RandomJokeAction>(RandomJokeState()) {
 
     init {
-        generateJoke()
+//        generateJoke()
     }
 
     override fun obtainEvent(event: RandomJokeEvent) {
