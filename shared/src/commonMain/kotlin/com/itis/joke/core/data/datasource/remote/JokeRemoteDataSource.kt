@@ -2,12 +2,15 @@ package com.itis.joke.core.data.datasource.remote
 
 import com.itis.joke.core.data.datasource.remote.model.JokeListResponse
 import com.itis.joke.core.data.datasource.remote.model.JokeResponse
+import com.itis.joke.core.data.datasource.remote.model.JokeSubmissionRequest
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import io.ktor.client.request.post
-import kotlinx.serialization.json.Json
+import io.ktor.client.request.setBody
+import io.ktor.http.ContentType
+import io.ktor.http.contentType
 
 class JokeRemoteDataSource(
     private val httpClient: HttpClient,
@@ -38,11 +41,10 @@ class JokeRemoteDataSource(
         return list
     }
 
-    suspend fun submitJoke(
-        joke: String,
-    ) {
+    suspend fun submitJoke(jokeSubmission: JokeSubmissionRequest) {
         httpClient.post("/submit") {
-
-        }.body<Json>()
+            contentType(ContentType.Application.Json)
+            setBody(jokeSubmission)
+        }.body<String>()
     }
 }

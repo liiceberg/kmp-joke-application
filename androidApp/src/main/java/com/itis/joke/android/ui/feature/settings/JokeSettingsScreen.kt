@@ -9,8 +9,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Checkbox
-import androidx.compose.material3.RadioButton
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -22,9 +22,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.itis.joke.android.R
-import com.itis.joke.android.ui.components.BodyMediumText
+import com.itis.joke.android.ui.components.BlacklistList
 import com.itis.joke.android.ui.components.JokeButton
+import com.itis.joke.android.ui.components.JokeCategoriesList
+import com.itis.joke.android.ui.components.RadioItem
 import com.itis.joke.android.ui.components.TitleLargeText
+import com.itis.joke.android.ui.theme.JokeTheme
 import com.itis.joke.android.ui.util.showShortToast
 import com.itis.joke.core.common.joke.JokeBlackListItem
 import com.itis.joke.core.common.joke.JokeCategory
@@ -78,26 +81,14 @@ private fun JokeSettingsView(
     Column(
         Modifier
             .fillMaxSize()
+            .verticalScroll(rememberScrollState())
             .padding(top = 32.dp, bottom = 16.dp, start = 16.dp, end = 16.dp)
     ) {
 
-        TitleLargeText(
-            text = stringResource(R.string.joke_category),
-        )
-
-        JokeCategory.entries.forEach { category ->
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable { onCategoryChange(category) }
-            ) {
-                RadioItem(category.name, state.category == category) { onCategoryChange(category) }
-            }
-        }
+        JokeCategoriesList(state.category, onCategoryChange)
 
 
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(16.dp))
         TitleLargeText(
             text = stringResource(R.string.joke_type)
         )
@@ -113,23 +104,9 @@ private fun JokeSettingsView(
         }
 
 
-        Spacer(modifier = Modifier.height(8.dp))
-        TitleLargeText(
-            text = stringResource(R.string.blacklist),
-        )
+        Spacer(modifier = Modifier.height(16.dp))
 
-        JokeBlackListItem.entries.forEach { item ->
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                CheckboxItem(
-                    item.name,
-                    state.blackList.contains(item)
-                ) { onBlackListChange(item, it) }
-            }
-        }
-
+        BlacklistList(state.blackList, onBlackListChange)
 
         Spacer(modifier = Modifier.weight(1f))
 
@@ -137,43 +114,15 @@ private fun JokeSettingsView(
     }
 }
 
-@Composable
-private fun RadioItem(
-    text: String,
-    selected: Boolean,
-    onClick: () -> Unit
-) {
-    RadioButton(
-        selected = selected,
-        onClick = onClick
-    )
-    BodyMediumText(
-        text = text,
-        modifier = Modifier.padding(start = 8.dp)
-    )
-}
 
-@Composable
-private fun CheckboxItem(
-    text: String,
-    checked: Boolean,
-    onCheckedChange: (Boolean) -> Unit
-) {
-    Checkbox(
-        checked = checked,
-        onCheckedChange = { checked ->
-            onCheckedChange(checked)
-        }
-    )
-    BodyMediumText(
-        text = text,
-        modifier = Modifier.padding(start = 8.dp)
-    )
-}
+
+
 
 
 @Preview(showBackground = true)
 @Composable
 private fun JokeSettingsPreview() {
-    JokeSettingsView(JokeSettingsState(), {}, {}, {}, { _, _ -> })
+    JokeTheme {
+        JokeSettingsView(JokeSettingsState(), {}, {}, {}, { _, _ -> })
+    }
 }

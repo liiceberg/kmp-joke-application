@@ -18,9 +18,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.itis.joke.android.R
+import com.itis.joke.android.ui.components.ErrorMessage
 import com.itis.joke.android.ui.components.LoadingIndicator
 import com.itis.joke.android.ui.components.SearchTextField
 import com.itis.joke.android.ui.components.TitleLargeText
+import com.itis.joke.android.ui.theme.JokeTheme
 import com.itis.joke.core.ui.LoadState
 import com.itis.joke.feature.library.presenation.JokeLibraryEvent
 import com.itis.joke.feature.library.presenation.JokeLibraryState
@@ -43,19 +45,20 @@ private fun JokeLibraryView(
     state: JokeLibraryState,
     onSearchFilled: (String) -> Unit,
 ) {
+
     Column(
         Modifier.fillMaxSize(),
     ) {
         SearchTextField(
             state.query,
             stringResource(R.string.search),
-            Modifier.padding(16.dp)
+            Modifier.padding(horizontal = 16.dp, vertical = 32.dp)
         ) { onSearchFilled(it) }
         Box(Modifier.fillMaxSize(), Alignment.Center) {
-            if (state.loadState == LoadState.Loading) {
-                LoadingIndicator()
-            } else {
-                JokeList(state.items)
+            when (state.loadState) {
+                LoadState.Loading -> LoadingIndicator()
+                is LoadState.Error -> ErrorMessage(errorText = (state.loadState as LoadState.Error).message)
+                else -> JokeList(state.items)
             }
         }
     }
@@ -96,5 +99,7 @@ private fun JokeItem(joke: String) {
 @Preview
 @Composable
 private fun LibraryPreview() {
-    JokeLibraryView(JokeLibraryState(items = listOf("joke 1"))) {}
+    JokeTheme {
+        JokeLibraryView(JokeLibraryState(items = listOf("joke 1"))) {}
+    }
 }

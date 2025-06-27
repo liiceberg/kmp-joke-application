@@ -9,6 +9,7 @@ import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,7 +30,8 @@ fun JokeTextField(
     label: String,
     modifier: Modifier = Modifier,
     supportingText: String? = null,
-    onValueChange: (String) -> Unit
+    singleLine: Boolean = true,
+    onValueChange: (String) -> Unit,
 ) {
     OutlinedTextField(
         value = value,
@@ -41,7 +43,7 @@ fun JokeTextField(
         } else null,
         isError = supportingText != null,
         shape = RoundedCornerShape(8.dp),
-        singleLine = true
+        singleLine = singleLine,
     )
 }
 
@@ -99,7 +101,7 @@ fun SearchTextField(
         shape = RoundedCornerShape(8.dp),
         singleLine = true,
         leadingIcon = {
-            JokeIcon(Icons.Default.Search, 24.dp)
+            JokeIcon(Icons.Default.Search, 24.dp, tint = MaterialTheme.colorScheme.onSurface)
         }
     )
 }

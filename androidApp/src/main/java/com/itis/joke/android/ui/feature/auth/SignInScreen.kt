@@ -14,21 +14,21 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.itis.joke.android.R
 import com.itis.joke.android.ui.components.BodyTextWithLink
 import com.itis.joke.android.ui.components.HeadlineLargeText
-import com.itis.joke.android.ui.components.LoadingIndicator
-import com.itis.joke.android.ui.components.PasswordTextField
 import com.itis.joke.android.ui.components.JokeButton
 import com.itis.joke.android.ui.components.JokeIcon
 import com.itis.joke.android.ui.components.JokeTextField
+import com.itis.joke.android.ui.components.LimitedErrorMessage
+import com.itis.joke.android.ui.components.LoadingIndicator
+import com.itis.joke.android.ui.components.PasswordTextField
 import com.itis.joke.android.ui.theme.JokeTheme
 import com.itis.joke.core.ui.LoadState
 import com.itis.joke.feature.auth.presentation.sign_in.SignInAction
 import com.itis.joke.feature.auth.presentation.sign_in.SignInEvent
 import com.itis.joke.feature.auth.presentation.sign_in.SignInState
 import com.itis.joke.feature.auth.presentation.sign_in.SignInViewModel
-import com.itis.joke.android.R
-import com.itis.joke.android.ui.components.LimitedErrorMessage
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -112,9 +112,7 @@ private fun SignInView(
                 }
             }
             when(loadState){
-                is LoadState.Error -> {
-                    LimitedErrorMessage(errorText = (loadState as LoadState.Error).message)
-                }
+                is LoadState.Error -> LimitedErrorMessage(errorText = (loadState as LoadState.Error).message)
                 is LoadState.Loading -> LoadingIndicator()
                 else -> {}
             }

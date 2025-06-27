@@ -26,7 +26,18 @@
     <string name="joke_category">Joke category</string>
     <string name="joke_type">Type</string>
     <string name="blacklist">Blacklist</string>
+
+    <!-- Random Joke   -->
     <string name="generate_joke">Generate joke</string>
+
+    <!--  Joke Library  -->
     <string name="search">Search</string>
+
+    <!--  Submit Joke  -->
+    <string name="your_joke_label">Your joke</string>
+    <string name="additional_joke_part_label">Enter additional part of the joke if you need</string>
+    <string name="submit_button">Submit</string>
+    <string name="success_submit_text">Your joke has been submitted for moderation</string>
+    <string name="failure_submit_text">Couldn\'t submit joke, please, try again later</string>
 
 </resources>

@@ -20,15 +20,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.itis.joke.android.R
+import com.itis.joke.android.ui.components.ErrorMessage
 import com.itis.joke.android.ui.components.JokeCard
 import com.itis.joke.android.ui.components.JokeIcon
 import com.itis.joke.android.ui.components.LoadingIndicator
 import com.itis.joke.android.ui.components.TitleMediumText
 import com.itis.joke.android.ui.theme.JokeTheme
 import com.itis.joke.core.common.joke.JokeType
-import com.itis.joke.core.ui.LoadState
 import com.itis.joke.core.data.datasource.remote.model.SingleJokeModel
 import com.itis.joke.core.data.datasource.remote.model.TwoPartJokeModel
+import com.itis.joke.core.ui.LoadState
 import com.itis.joke.feature.random_joke.presentation.RandomJokeEvent
 import com.itis.joke.feature.random_joke.presentation.RandomJokeState
 import com.itis.joke.feature.random_joke.presentation.RandomJokeViewModel
@@ -70,6 +71,11 @@ fun RandomJokeView(state: RandomJokeState, onGenerateClick: () -> Unit) {
                 else -> {}
             }
 
+        }
+        state.loadState.let { loadState ->
+            if (loadState is LoadState.Error) {
+                ErrorMessage(loadState.message)
+            }
         }
 
         Button(
