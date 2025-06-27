@@ -1,10 +1,10 @@
-package com.itis.joke.core.data.datasource.remote
+package com.itis.joke.core.data.datasource.remote.model
 
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class JokeResponse(
-    val error: Boolean,
+    val error: Boolean? = null,
     val category: String,
     val type: String,
     val joke: String? = null,

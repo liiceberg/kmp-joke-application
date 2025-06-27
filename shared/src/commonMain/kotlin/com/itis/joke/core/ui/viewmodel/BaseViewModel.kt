@@ -35,6 +35,5 @@ abstract class BaseViewModel<State : UiState, Event : UiEvent, Action : UiAction
     fun viewStates(): StateFlow<State> = _viewStates.asStateFlow()
 
     open fun obtainEvent(event: Event) {}
-    protected open fun init() {}
 
 }

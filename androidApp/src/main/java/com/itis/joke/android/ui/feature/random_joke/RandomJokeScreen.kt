@@ -27,8 +27,8 @@ import com.itis.joke.android.ui.components.TitleMediumText
 import com.itis.joke.android.ui.theme.JokeTheme
 import com.itis.joke.core.common.joke.JokeType
 import com.itis.joke.core.ui.LoadState
-import com.itis.joke.feature.random_joke.domain.SingleJokeModel
-import com.itis.joke.feature.random_joke.domain.TwoPartJokeModel
+import com.itis.joke.core.data.datasource.remote.model.SingleJokeModel
+import com.itis.joke.core.data.datasource.remote.model.TwoPartJokeModel
 import com.itis.joke.feature.random_joke.presentation.RandomJokeEvent
 import com.itis.joke.feature.random_joke.presentation.RandomJokeState
 import com.itis.joke.feature.random_joke.presentation.RandomJokeViewModel

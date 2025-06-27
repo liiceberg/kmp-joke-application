@@ -13,6 +13,7 @@ import com.itis.joke.feature.auth.authModule
 import com.itis.joke.feature.joke_settings.jokeSettingsModule
 import com.itis.joke.feature.library.libraryModule
 import com.itis.joke.feature.random_joke.randomJokeModule
+import com.itis.joke.feature.suggest_joke.suggestJokeModule
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -41,6 +42,7 @@ object CommonKmp {
                 libraryModule,
                 jokeSettingsModule,
                 randomJokeModule,
+                suggestJokeModule,
             )
         }
     }

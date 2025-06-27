@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Icon
@@ -25,8 +26,8 @@ import com.itis.joke.android.ui.theme.JokeTheme
 @Composable
 fun JokeTextField(
     value: String,
-    modifier: Modifier = Modifier,
     label: String,
+    modifier: Modifier = Modifier,
     supportingText: String? = null,
     onValueChange: (String) -> Unit
 ) {
@@ -47,8 +48,8 @@ fun JokeTextField(
 @Composable
 fun PasswordTextField(
     value: String,
-    modifier: Modifier = Modifier,
     label: String,
+    modifier: Modifier = Modifier,
     supportingText: String? = null,
     onValueChange: (String) -> Unit
 ) {
@@ -78,6 +79,32 @@ fun PasswordTextField(
 }
 
 @Composable
+fun SearchTextField(
+    value: String,
+    label: String,
+    modifier: Modifier = Modifier,
+    supportingText: String? = null,
+    onValueChange: (String) -> Unit
+) {
+
+    OutlinedTextField(
+        value = value,
+        onValueChange = onValueChange,
+        modifier = modifier.fillMaxWidth(),
+        label = { Text(label) },
+        supportingText = if (supportingText != null) {
+            @Composable { Text(supportingText) }
+        } else null,
+        isError = supportingText != null,
+        shape = RoundedCornerShape(8.dp),
+        singleLine = true,
+        leadingIcon = {
+            JokeIcon(Icons.Default.Search, 24.dp)
+        }
+    )
+}
+
+@Composable
 private fun ShowHidePasswordIcon(
     isVisible: Boolean,
     toggleIsVisible: () -> Unit,
@@ -95,6 +122,7 @@ private fun PreviewTextInput() {
         Column {
             JokeTextField(value = "", label = "Email", onValueChange = {})
             PasswordTextField(value = "", label = "Email", onValueChange = {})
+            SearchTextField(value = "", label = "") { }
         }
     }
 }

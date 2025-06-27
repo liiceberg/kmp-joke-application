@@ -59,8 +59,8 @@ fun HeadlineSmallText(
 }
 
 @Composable
-fun TitleLargeText(text: String, modifier: Modifier = Modifier) {
-    Text(text = text, modifier = modifier, style = MaterialTheme.typography.titleLarge)
+fun TitleLargeText(text: String, modifier: Modifier = Modifier, color: Color = Color.Unspecified) {
+    Text(text = text, modifier = modifier, style = MaterialTheme.typography.titleLarge, color = color)
 }
 
 @Composable

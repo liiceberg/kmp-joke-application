@@ -27,5 +27,6 @@
     <string name="joke_type">Type</string>
     <string name="blacklist">Blacklist</string>
     <string name="generate_joke">Generate joke</string>
+    <string name="search">Search</string>
 
 </resources>

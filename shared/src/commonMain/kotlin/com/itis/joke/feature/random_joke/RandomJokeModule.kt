@@ -1,6 +1,6 @@
 package com.itis.joke.feature.random_joke
 
-import com.itis.joke.feature.random_joke.data.RandomJokeMapper
+import com.itis.joke.core.data.datasource.remote.model.mapper.JokeModelMapper
 import com.itis.joke.feature.random_joke.data.RandomJokeRepositoryImpl
 import com.itis.joke.feature.random_joke.domain.RandomJokeRepository
 import com.itis.joke.feature.random_joke.domain.usecase.GetRandomJokeUseCase
@@ -13,7 +13,7 @@ import org.koin.dsl.module
 
 val randomJokeModule = module {
     singleOf(::RandomJokeRepositoryImpl) { bind<RandomJokeRepository>() }
-    singleOf(::RandomJokeMapper)
+    singleOf(::JokeModelMapper)
 
     singleOf(::GetRandomJokeUseCaseImpl) { bind<GetRandomJokeUseCase>() }
 
