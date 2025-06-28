@@ -40,7 +40,7 @@ struct SuggestJokeScreen: View {
                 viewModelWrapper.viewModel.obtainEvent(
                     event: SuggestJokeEventOnBlackListChange(item: item, checked: checked)
                 )
-            },
+            }
         
         )
         .task {

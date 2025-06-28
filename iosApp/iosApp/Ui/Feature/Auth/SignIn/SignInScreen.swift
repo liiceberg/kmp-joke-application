@@ -87,7 +87,7 @@ struct SignInView: View {
                 JokeButton(
                     title: String(localized: "sign_in"),
                     isEnabled: state.emailValidation.isValid && state.passwordValidation.isValid,
-                    action: onSignInClicked,
+                    action: onSignInClicked
                 )
                 .padding(.top, 32)
                 

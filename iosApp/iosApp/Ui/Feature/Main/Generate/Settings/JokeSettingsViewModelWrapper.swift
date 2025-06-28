@@ -17,7 +17,7 @@ class JokeSettingsViewModelWrapper: ObservableObject {
     @Published var state: JokeSettingsState = JokeSettingsState(
         category: JokeCategory.any,
         type: JokeType.single,
-        blackList: [],
+        blackList: []
     )
 
     @MainActor

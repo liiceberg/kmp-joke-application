@@ -3,9 +3,6 @@ buildscript {
         gradlePluginPortal()
         mavenCentral()
     }
-    dependencies {
-        classpath("io.github.skeptick.libres:gradle-plugin:1.2.4")
-    }
 }
 
 plugins {

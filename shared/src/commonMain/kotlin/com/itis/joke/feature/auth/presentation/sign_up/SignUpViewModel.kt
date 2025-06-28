@@ -1,7 +1,6 @@
 package com.itis.joke.feature.auth.presentation.sign_up
 
 import androidx.lifecycle.viewModelScope
-import com.itis.joke.Res
 import com.itis.joke.core.ui.LoadState
 import com.itis.joke.core.common.exceptions.AppException
 import com.itis.joke.core.common.exceptions.ExceptionHandlerDelegate
@@ -65,7 +64,7 @@ class SignUpViewModel(
                     viewState = viewState.copy(
                         emailValidation = ValidationResult(
                             isValid = false,
-                            error = Res.string.invalid_email_error
+                            error = ex.message
                         )
                     )
                 } else {

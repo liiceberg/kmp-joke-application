@@ -6,7 +6,6 @@ plugins {
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.sqldelight)
-    alias(libs.plugins.libres)
 }
 
 kotlin {
@@ -55,8 +54,6 @@ kotlin {
             implementation(libs.koin.compose.vm)
 
             implementation(libs.androidx.lifecycle.viewmodel)
-
-            implementation(libs.libres.compose)
         }
         androidMain.dependencies {
             implementation(libs.ktor.client.okhttp)
