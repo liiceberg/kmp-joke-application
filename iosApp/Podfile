@@ -5,5 +5,7 @@ target 'iosApp' do
 
   pod 'FirebaseAnalytics', '10.23.0'
   pod 'FirebaseCrashlytics', '10.23.0'
-
+  
+  pod 'KMPNativeCoroutinesAsync', '~> 1.0.0'
+  pod 'KMPNativeCoroutinesCore', '~> 1.0.0'
 end

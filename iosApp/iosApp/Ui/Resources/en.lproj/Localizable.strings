@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  iosApp
+
+  Created by Мирон Солопов on 28.06.2025.
+  Copyright © 2025 orgName. All rights reserved.
+*/
+
+"your_joke" = "Your Joke";
+"additional_part" = "Additional Joke Part";
+"submit" = "Submit";
+"search" = "Search";
+"joke_type" = "Joke Type";
+"save" = "Save";
+"generate_joke" = "Generate A Joke";
+"create_account" = "Create Your Account";
+"sign_in_account" = "Sign in Your Account";
+"username" = "Username";
+"email" = "Email";
+"password" = "Password";
+"confirm_password" = "Confirm Password";
+"sign_up" = "Sign Up";
+"sign_in" = "Sign In";
+"have_account_question" = "Already have an account?";
+"no_account_question" = "No account?";
+

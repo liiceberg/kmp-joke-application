@@ -4,8 +4,8 @@ import com.itis.joke.core.common.config.Configuration
 import com.itis.joke.core.common.config.PlatformConfiguration
 import com.itis.joke.core.common.exceptions.ExceptionHandlerDelegate
 import com.itis.joke.core.data.database.databaseModule
-import com.itis.joke.core.data.datasource.remote.JokeRemoteDataSource
 import com.itis.joke.core.data.datasource.local.JokeSettingsDataSource
+import com.itis.joke.core.data.datasource.remote.JokeRemoteDataSource
 import com.itis.joke.core.data.network.networkModule
 import com.itis.joke.core.data.qualifier.qualifierModule
 import com.itis.joke.core.data.settings.settingsModule
